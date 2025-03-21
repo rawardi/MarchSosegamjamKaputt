@@ -20,3 +20,8 @@ shape = SubResource("RectangleShape2D_y0j5y")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(20, -25)
 zoom = Vector2(2, 2)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.509
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
