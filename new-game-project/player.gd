@@ -12,14 +12,17 @@ var walldashtime= false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-#@onready var anim = get_node("AnimationPlayer")
+
+
 
 func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
+	
+	# Wall dash and wall slide control
 	if is_on_wall()  and Input.is_action_just_pressed("WallJump") :
 		walldashtime=true
 		$Timer.start()
-	if  is_on_wall()  and walldashtime:
+	if  is_on_wall()  and walldashtime: 
 		if Input.is_action_just_pressed("walldashleft") :
 			print("jump dash left")
 			walldashtime=false
@@ -35,6 +38,10 @@ func _physics_process(delta):
 	if walldashtime== true :
 		velocity.x=0
 		velocity.y=0
+
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  the wall dash is needs to be fixed but the the time stop function
+
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	# Handle Jump.
@@ -43,8 +50,7 @@ func _physics_process(delta):
 		DoubleJump+=1
 	if is_on_floor() :
 		DoubleJump=0
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+#Jump and basic movement
 
 
 	if direction == -1:
@@ -67,3 +73,4 @@ func _physics_process(delta):
 
 func _on_timer_timeout() -> void:
 	walldashtime=false
+#walldash control
