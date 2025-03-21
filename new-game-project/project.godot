@@ -21,3 +21,7 @@ wallclutch={
 "deadzone": 0.5,
 "events": []
 }
+
+[physics]
+
+2d/default_gravity=2080.0
