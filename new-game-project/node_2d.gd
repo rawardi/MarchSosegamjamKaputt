@@ -1,0 +1,33 @@
+extends Node2D
+
+var card_list = [] 
+
+var cardtypes = {"double": 0, "walljump": 4, "explosion": 8}
+var cardname_array = ["double", "walljump", "explosion"]
+var i = 0
+var current_cardtype = cardname_array[i]
+
+func store_card(type):
+	#stores a new card and equips it's effect 
+	cardtypes[type] += 1
+	i = cardname_array.find(type)
+	current_cardtype = type
+
+func _process(delta: float) -> void:
+	#switch selected card i
+	if Input.is_action_just_pressed("left_mouse_button"):
+		if i < cardtypes.size() - 1:
+			i += 1
+		else:
+			i = 0
+		current_cardtype = cardname_array[i]
+	if Input.is_action_just_pressed("right_mouse_button"):
+		if i == 0:
+			i = cardtypes.size() - 1
+		else:
+			i -= 1
+		current_cardtype = cardname_array[i]
+	
+	#player uses card when he has the selected card (based on i)
+	if Input.is_action_just_pressed("use_card") and cardtypes[cardname_array[i]] > 0:
+		cardtypes[cardname_array[i]] -= 1
