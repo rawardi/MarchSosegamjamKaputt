@@ -14,3 +14,10 @@ config/name="MarchSosegamjam2025"
 run/main_scene="res://Scenes/level_1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[input]
+
+wallclutch={
+"deadzone": 0.5,
+"events": []
+}
