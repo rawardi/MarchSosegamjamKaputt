@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 @onready var selected_card = $RichTextLabel
 @onready var animation = $AnimatedSprite2D
+@onready var marker = $Marker2D
+
+var explosiv_scene = preload("res://explosive.tscn")
 
 const JUMP_VELOCITY = -500.0
 var MAX_SPEED = 700.0
@@ -50,7 +53,7 @@ func _physics_process(delta):
 
 #launch when shift released
 	if Input.is_action_just_released("use_card") and wallclutch:
-		MAX_SPEED += 200
+		MAX_SPEED += 100
 		wallclutch = false
 		var shoot_vector = global_position - get_global_mouse_position()
 		shoot_vector.round()
@@ -95,7 +98,7 @@ func _physics_process(delta):
 
 #double jump ability
 	if Input.is_action_just_pressed("use_card") and current_cardtype == "double" and cardtypes[cardname_array[i]] > 0:
-		MAX_SPEED += 100
+		MAX_SPEED += 50
 		if animation.flip_h == true:
 			velocity.x += -MAX_SPEED/2
 			velocity.y = JUMP_VELOCITY
@@ -107,15 +110,25 @@ func _physics_process(delta):
 
 		loop_animation = false
 		animation.play("double")
-		await animation.animation_finished
-		loop_animation = true
 
 		launched_to_ground = false
 		launched = true
+
+		await animation.animation_finished
+		loop_animation = true
+
 		await get_tree().create_timer(0.2).timeout
 		launched_to_ground = true
 		await get_tree().create_timer(1.0).timeout
 		launched = false
+
+
+	if Input.is_action_just_pressed("use_card") and current_cardtype == "explosion":# and cardtypes[cardname_array[i]] > 0:
+		var explosiv = explosiv_scene.instantiate() #spawns granade
+		explosiv.global_position = marker.global_position #set position to marker 2D
+		get_tree().current_scene.add_child(explosiv) #link bullet to tree
+		var shoot_vector = get_global_mouse_position() - marker.global_position
+		explosiv.direction = shoot_vector/shoot_vector.length() #give shoot direction to bullet 
 
 
 	if not wallclutch:
@@ -125,7 +138,6 @@ func _physics_process(delta):
 			animation.flip_h = true
 		elif direction == 1:
 			animation.flip_h = false
-
 
 #walking
 		if direction:
@@ -196,3 +208,18 @@ func store_card(type):
 	cardtypes[type] += 1
 	i = cardname_array.find(type)
 	current_cardtype = type
+
+func granade_boost(granade_pos, boost_indicator):
+	MAX_SPEED += 200
+	var boost_vector = global_position - granade_pos
+	boost_vector
+	boost_vector /= boost_vector.length()
+	velocity += boost_vector * boost_indicator
+
+
+	launched_to_ground = false
+	launched = true
+	await get_tree().create_timer(0.5).timeout
+	launched_to_ground = true
+	await get_tree().create_timer(0.5).timeout
+	launched = false

@@ -1,25 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://uv2q62o47d81"]
+[gd_scene load_steps=6 format=3 uid="uid://uv2q62o47d81"]
 
 [ext_resource type="Script" path="res://explosive.gd" id="1_74p2q"]
+[ext_resource type="Texture2D" uid="uid://bky5jfk0ynfiw" path="res://icon.svg" id="2_xiyn0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_21086"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8v4nv"]
+radius = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e84uy"]
-height = 20.0
+radius = 23.0
+height = 46.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_74p2q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_e84uy")
+shape = SubResource("CircleShape2D_21086")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_e84uy")
+shape = SubResource("CircleShape2D_8v4nv")
 
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("CapsuleShape2D_e84uy")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(0.328125, 0.328125)
+texture = ExtResource("2_xiyn0")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
