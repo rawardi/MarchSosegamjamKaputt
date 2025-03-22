@@ -35,11 +35,6 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Submit Name"
-
 [node name="Show" type="Button" parent="."]
 layout_mode = 0
 offset_left = 799.0
@@ -56,6 +51,5 @@ leaderboard_id = "marchsosegamejam2025-leaderboard-GU3d"
 [connection signal="pressed" from="Hide" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Show" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Show" to="." method="_on_show_pressed"]
