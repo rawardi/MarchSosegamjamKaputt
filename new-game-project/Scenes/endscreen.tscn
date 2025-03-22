@@ -1,83 +1,67 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdr4akk3xwn22"]
+[gd_scene load_steps=5 format=3 uid="uid://bunfooqim8inp"]
 
-[ext_resource type="Script" path="res://Scenes/endscreen.gd" id="1_7tps4"]
-[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="2_u5aou"]
-[ext_resource type="Texture2D" uid="uid://dysvow5u1tsey" path="res://Assets/Background_End_Screen.png" id="3_8mbw1"]
-[ext_resource type="Texture2D" uid="uid://cursckyo2dcwx" path="res://Assets/PARALAXBACKGROUND_LAYERED.png" id="4_hhk8h"]
+[ext_resource type="Script" path="res://Scenes/endscreen.gd" id="1_qbp6t"]
+[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="2_b76nr"]
+[ext_resource type="Texture2D" uid="uid://cursckyo2dcwx" path="res://Assets/PARALAXBACKGROUND_LAYERED.png" id="3_ssn03"]
+[ext_resource type="Texture2D" uid="uid://dysvow5u1tsey" path="res://Assets/Background_End_Screen.png" id="4_xcb5a"]
 
-[node name="Node2D" type="Control"]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7tps4")
-metadata/_edit_use_anchors_ = true
+script = ExtResource("1_qbp6t")
 
-[node name="BackgroundEndScreen" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-scale = Vector2(4, 4)
-texture = ExtResource("3_8mbw1")
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -541.5
+offset_top = 122.0
+offset_right = 541.5
+offset_bottom = 378.0
+grow_horizontal = 2
+bbcode_enabled = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 924.0
+offset_right = 797.0
+offset_bottom = 1032.0
+theme_override_font_sizes/font_size = 64
+alignment = 1
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 74.0
+offset_top = 924.0
+offset_right = 797.0
+offset_bottom = 1032.0
+theme_override_font_sizes/font_size = 64
+text = "RETURN TO MENU"
+
+[node name="LeaderboardUI" parent="." instance=ExtResource("2_b76nr")]
+layout_mode = 1
+offset_left = 74.0
+offset_top = 493.0
+offset_right = -1123.0
+offset_bottom = -192.0
 
 [node name="ParalaxbackgroundLayered" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(960, 540)
-texture = ExtResource("4_hhk8h")
+texture = ExtResource("3_ssn03")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-z_index = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -615.0
-offset_top = -380.0
-offset_right = 615.0
-offset_bottom = -154.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-
-[node name="LineEdit" type="LineEdit" parent="."]
-layout_mode = 2
-offset_left = 35.0
-offset_top = 915.0
-offset_right = 955.0
-offset_bottom = 1049.0
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 64
-alignment = 1
-
-[node name="LeaderboardUI" parent="." instance=ExtResource("2_u5aou")]
-z_index = 1
-layout_mode = 1
-<<<<<<< Updated upstream
-leaderboard_id = "marchsosegamejam2025-leaderboard-G93R"
-
-[connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]
-[connection signal="pressed" from="Hide" to="." method="_on_button_pressed"]
-[connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="Show" to="." method="_on_show_pressed"]
-[connection signal="pressed" from="Show" to="." method="_on_button_pressed"]
-=======
-offset_left = 35.0
-offset_top = 481.0
-offset_right = -965.0
-offset_bottom = -189.0
-leaderboard_id = "marchsosegamejam2025-leaderboard-GU3d"
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 915.0
-offset_right = 955.0
-offset_bottom = 1049.0
-theme_override_font_sizes/font_size = 64
-text = "RETURN TO MENU"
+[node name="BackgroundEndScreen" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+scale = Vector2(4, 4)
+texture = ExtResource("4_xcb5a")
 
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
->>>>>>> Stashed changes
