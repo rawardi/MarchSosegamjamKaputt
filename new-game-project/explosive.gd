@@ -28,9 +28,9 @@ func _process(delta: float) -> void:
 		if explosion_timer > 0.4:
 			animation.play("detonation")
 			if inner_granade.is_connected(body_.granade_boost):
-				inner_granade.emit(global_position,1300) #emit granade signal when timer hits detonation timer
+				inner_granade.emit(global_position, 40) #emit granade signal when timer hits detonation timer
 			else:
-				outer_granade.emit(global_position, 900)
+				outer_granade.emit(global_position, 20)
 			await animation.animation_finished
 			
 			self.queue_free()
