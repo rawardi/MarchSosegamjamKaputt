@@ -9,6 +9,11 @@ extends CharacterBody2D
 
 var explosiv_scene = preload("res://explosive.tscn")
 
+var red_cursor = preload("res://cursor_r.png")
+var yellow_cursor = preload("res://cursor_y.png")
+var blue_cursor = preload("res://cursor_b.png")
+var gray_cursor = preload("res://cursor_g.png")
+
 const JUMP_VELOCITY = -700.0
 var MAX_SPEED = 700.0
 var original_max_speed = MAX_SPEED
@@ -31,7 +36,7 @@ var cardtypes = {"double": 0, "walljump": 0, "explosion": 0}
 var cardname_array = ["double", "walljump", "explosion"]
 var i = 0
 var current_cardtype = cardname_array[i]
-
+var cursor_array = [blue_cursor, yellow_cursor, red_cursor, gray_cursor]
 
 #movement management
 func _physics_process(delta):
@@ -174,6 +179,7 @@ func _physics_process(delta):
 
 #cardmanagement
 func _process(delta: float) -> void:
+
 #switch selected card i
 	if Input.is_action_just_pressed("left_mouse_button"):
 		if i < cardtypes.size() - 1:
@@ -187,14 +193,6 @@ func _process(delta: float) -> void:
 		else:
 			i -= 1
 		current_cardtype = cardname_array[i]
-
-##displays selected card
-#	selected_card.text = current_cardtype
-#	if cardtypes[cardname_array[i]] != 0:
-#		selected_card.text = "[color=yellow]" + current_cardtype
-#	else:
-#		selected_card.text = "[color=gray]" + current_cardtype
-
 
 
 #animation manager
@@ -226,6 +224,11 @@ func _process(delta: float) -> void:
 		left_card_animation.play(current_cardtype+"_active")
 	else:
 		left_card_animation.play(current_cardtype+"_inactive")
+	
+	var t = i
+	if cardtypes[cardname_array[i]] <= 0:
+		t = 3
+	Input.set_custom_mouse_cursor(cursor_array[t])
 
 
 func store_card(type):
