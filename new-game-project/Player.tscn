@@ -18,10 +18,18 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_y0j5y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(20, -25)
+position = Vector2(45, -42)
 zoom = Vector2(2, 2)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.509
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 184.0
+offset_top = 65.0
+offset_right = 318.0
+offset_bottom = 105.0
+theme_override_colors/font_selected_color = Color(0.87451, 0.698039, 0, 1)
+bbcode_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
