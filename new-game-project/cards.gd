@@ -9,7 +9,8 @@ signal collected
 
 func _ready() -> void:
 	#displays the correct sprite
-	animation.play(cardtype)
+#	animation.play(cardtype)
+	pass
 
 func _on_body_entered(body: Node2D) -> void:
 	#allerts body that a card has been collected
