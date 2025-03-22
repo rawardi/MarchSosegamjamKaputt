@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdr4akk3xwn22"]
 
 [ext_resource type="Script" path="res://Scenes/endscreen.gd" id="1_7tps4"]
-[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="2_u5aou"]
+[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://quiver-leaderboards-godot-plugin-5567dc56d18f16072ad4e01373293306d3a6a1c7/addons/quiver_leaderboards/leaderboard_ui.tscn" id="2_u5aou"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -48,8 +48,8 @@ visible = false
 layout_mode = 1
 leaderboard_id = "marchsosegamejam2025-leaderboard-G93R"
 
-[connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]
 [connection signal="pressed" from="Hide" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="Show" to="." method="_on_show_pressed"]
 [connection signal="pressed" from="Show" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Show" to="." method="_on_show_pressed"]
