@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btw0v6oqef2a8" path="res://mini_cards.png" id="2_q1gtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vdyt"]
-size = Vector2(8, 14)
+size = Vector2(21, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7m1gb"]
 atlas = ExtResource("2_q1gtg")
@@ -49,6 +49,7 @@ animations = [{
 script = ExtResource("1_0o4is")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1vdyt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

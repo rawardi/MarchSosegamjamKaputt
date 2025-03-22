@@ -63,10 +63,11 @@ func _physics_process(delta):
 		velocity = shoot_vector * 1100
 
 		animation.play("walljump")
+		cardtypes[cardname_array[i]] -= 1
 
 		launched_to_ground = false
 		launched = true
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.3).timeout
 		launched_to_ground = true
 		await get_tree().create_timer(0.5).timeout
 		launched = false
@@ -103,10 +104,10 @@ func _physics_process(delta):
 		MAX_SPEED += 50
 		if animation.flip_h == true:
 			velocity.x += -MAX_SPEED/2
-			velocity.y = JUMP_VELOCITY
+			velocity.y = -600
 		else:
 			velocity.x += MAX_SPEED/2
-			velocity.y = JUMP_VELOCITY
+			velocity.y = -600
 
 		cardtypes[cardname_array[i]] -= 1
 
@@ -126,6 +127,7 @@ func _physics_process(delta):
 
 
 	if Input.is_action_just_pressed("use_card") and current_cardtype == "explosion" and cardtypes[cardname_array[i]] > 0:
+		cardtypes[cardname_array[i]] -= 1
 		var explosiv = explosiv_scene.instantiate() #spawns granade
 		explosiv.global_position = marker.global_position #set position to marker 2D
 		get_tree().current_scene.add_child(explosiv) #link bullet to tree
