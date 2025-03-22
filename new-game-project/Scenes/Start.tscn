@@ -1,45 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt4k13wafgyf8"]
+[gd_scene load_steps=6 format=3 uid="uid://bt4k13wafgyf8"]
 
-[ext_resource type="Script" path="res://Scenes/parallax_background.gd" id="1_3q8sg"]
 [ext_resource type="Script" path="res://Scenes/start.gd" id="1_kup7y"]
-[ext_resource type="Texture2D" uid="uid://d25d0mb2k473c" path="res://Assets/Placeholder/all-bg.png" id="2_f5rox"]
+[ext_resource type="Texture2D" uid="uid://cursckyo2dcwx" path="res://Assets/PARALAXBACKGROUND_LAYERED.png" id="2_7i6c3"]
+[ext_resource type="Texture2D" uid="uid://pqonlq6so7cy" path="res://Assets/Background_Title_Screen.png" id="3_cl68t"]
 [ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="4_scuuf"]
+[ext_resource type="Texture2D" uid="uid://b7pjnkfjkcdja" path="res://Assets/Buttons_Title_Screen.png" id="5_yjjq6"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_kup7y")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("1_3q8sg")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(955, 539.5)
-scale = Vector2(2.79565, 4.84375)
-texture = ExtResource("2_f5rox")
+position = Vector2(958.522, 544.266)
+scale = Vector2(1.0005, 1.00234)
+texture = ExtResource("2_7i6c3")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(1930, 3)
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-texture_filter = 1
-position = Vector2(954, 534.75)
-scale = Vector2(2.79565, 4.84598)
-texture = ExtResource("2_f5rox")
+[node name="BackgroundTitleScreen" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-0.521835, -8.41689)
+scale = Vector2(3.98368, 3.95243)
+texture = ExtResource("3_cl68t")
 
 [node name="start" type="Button" parent="."]
-offset_left = 5.0
-offset_top = 660.0
-offset_right = 310.0
-offset_bottom = 798.0
+offset_left = 17.0
+offset_top = 680.0
+offset_right = 378.0
+offset_bottom = 770.0
 text = "Start"
 
 [node name="leaderboard" type="Button" parent="."]
-offset_left = 3.0
-offset_top = 823.0
-offset_right = 348.0
-offset_bottom = 982.0
+offset_left = 20.0
+offset_top = 948.0
+offset_right = 380.0
+offset_bottom = 1034.0
 text = "Leaderboard"
 
 [node name="LeaderboardUI" parent="." instance=ExtResource("4_scuuf")]
@@ -47,6 +41,11 @@ visible = false
 offset_top = -1.0
 offset_right = 1904.0
 offset_bottom = 648.0
+
+[node name="ButtonsTitleScreen" type="Sprite2D" parent="."]
+position = Vector2(707, 696)
+scale = Vector2(3.075, 2.80741)
+texture = ExtResource("5_yjjq6")
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="leaderboard" to="." method="_on_leaderboard_pressed"]
