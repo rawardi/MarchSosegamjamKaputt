@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdr4akk3xwn22"]
+
+[ext_resource type="Script" path="res://Scenes/endscreen.gd" id="1_7tps4"]
+[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="2_u5aou"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7tps4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hide" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 18.0
+offset_right = 115.0
+offset_bottom = 49.0
+size_flags_horizontal = 3
+text = "Hide Leaderboard"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -202.0
+offset_right = 654.0
+grow_vertical = 0
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Show" type="Button" parent="."]
+layout_mode = 0
+offset_left = 799.0
+offset_top = 887.0
+offset_right = 1248.0
+offset_bottom = 1074.0
+text = "Show Leaderboard"
+
+[node name="LeaderboardUI" parent="." instance=ExtResource("2_u5aou")]
+visible = false
+layout_mode = 1
+leaderboard_id = "marchsosegamejam2025-leaderboard-G93R"
+
+[connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]
+[connection signal="pressed" from="Hide" to="." method="_on_button_pressed"]
+[connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Show" to="." method="_on_show_pressed"]
+[connection signal="pressed" from="Show" to="." method="_on_button_pressed"]

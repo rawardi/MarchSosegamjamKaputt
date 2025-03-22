@@ -1,10 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt4k13wafgyf8"]
+[gd_scene load_steps=10 format=3 uid="uid://bt4k13wafgyf8"]
 
 [ext_resource type="Script" path="res://Scenes/start.gd" id="1_kup7y"]
 [ext_resource type="Texture2D" uid="uid://cursckyo2dcwx" path="res://Assets/PARALAXBACKGROUND_LAYERED.png" id="2_7i6c3"]
 [ext_resource type="Texture2D" uid="uid://pqonlq6so7cy" path="res://Assets/Background_Title_Screen.png" id="3_cl68t"]
 [ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="4_scuuf"]
 [ext_resource type="Texture2D" uid="uid://b7pjnkfjkcdja" path="res://Assets/Buttons_Title_Screen.png" id="5_yjjq6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi11d"]
+atlas = ExtResource("5_yjjq6")
+region = Rect2(12.1447, 126.048, 123.374, 37.7832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7el3b"]
+atlas = ExtResource("5_yjjq6")
+region = Rect2(12.5672, 220.391, 124.484, 39.8261)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7da1"]
+atlas = ExtResource("5_yjjq6")
+region = Rect2(10.1115, 76.2512, 124.43, 41.6945)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1b6p"]
+atlas = ExtResource("5_yjjq6")
+region = Rect2(11.6959, 170.526, 124.029, 40.553)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_kup7y")
@@ -24,17 +40,37 @@ texture = ExtResource("3_cl68t")
 
 [node name="start" type="Button" parent="."]
 offset_left = 17.0
-offset_top = 680.0
-offset_right = 378.0
-offset_bottom = 770.0
-text = "Start"
+offset_top = 640.0
+offset_right = 303.0
+offset_bottom = 730.0
+text = "
+"
+icon = SubResource("AtlasTexture_wi11d")
+expand_icon = true
 
 [node name="leaderboard" type="Button" parent="."]
-offset_left = 20.0
-offset_top = 948.0
-offset_right = 380.0
-offset_bottom = 1034.0
-text = "Leaderboard"
+offset_left = 21.0
+offset_top = 736.0
+offset_right = 302.0
+offset_bottom = 836.0
+icon = SubResource("AtlasTexture_7el3b")
+expand_icon = true
+
+[node name="credits" type="Button" parent="."]
+offset_left = 22.0
+offset_top = 844.0
+offset_right = 304.0
+offset_bottom = 945.0
+icon = SubResource("AtlasTexture_b7da1")
+expand_icon = true
+
+[node name="quit" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 954.0
+offset_right = 305.0
+offset_bottom = 1055.0
+icon = SubResource("AtlasTexture_m1b6p")
+expand_icon = true
 
 [node name="LeaderboardUI" parent="." instance=ExtResource("4_scuuf")]
 visible = false
@@ -43,6 +79,7 @@ offset_right = 1904.0
 offset_bottom = 648.0
 
 [node name="ButtonsTitleScreen" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(707, 696)
 scale = Vector2(3.075, 2.80741)
 texture = ExtResource("5_yjjq6")
