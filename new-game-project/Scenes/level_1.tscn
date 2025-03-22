@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://ctinu3bban38j"]
+[gd_scene load_steps=8 format=4 uid="uid://ctinu3bban38j"]
 
 [ext_resource type="Texture2D" uid="uid://b7tsa8bimgbrc" path="res://Environment.png" id="1_och70"]
 [ext_resource type="PackedScene" uid="uid://dses5w6sjpe2" path="res://Player.tscn" id="2_8fnok"]
 [ext_resource type="PackedScene" uid="uid://unfi7dw26ruy" path="res://Scenes/cards.tscn" id="3_txwap"]
+[ext_resource type="PackedScene" uid="uid://cauonef4dchjo" path="res://Scenes/Timer.tscn" id="4_vn05a"]
+[ext_resource type="PackedScene" uid="uid://bwy6ct3ui8xc8" path="res://Scenes/Ziel.tscn" id="5_msfm4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0s33i"]
 texture = ExtResource("1_och70")
@@ -71,3 +73,8 @@ position = Vector2(-61, -15)
 [node name="Area2D" parent="." instance=ExtResource("3_txwap")]
 position = Vector2(9, -12)
 cardtype = "double"
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_vn05a")]
+
+[node name="Area2D2" parent="." instance=ExtResource("5_msfm4")]
+position = Vector2(392, -159)

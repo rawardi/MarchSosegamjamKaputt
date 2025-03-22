@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwy6ct3ui8xc8"]
+
+[ext_resource type="Script" path="res://Scripts/ziel.gd" id="1_x6p2q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pw22r"]
+radius = 13.0384
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_x6p2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pw22r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
