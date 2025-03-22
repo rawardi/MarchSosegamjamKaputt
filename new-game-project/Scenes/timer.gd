@@ -11,12 +11,12 @@ var milliseconds: int = 0
 func _process(delta: float) -> void:
 	time += delta
 	
-	var formatted_time = str(time)
-	var decimal_index = formatted_time.find(".")
-	
-	if decimal_index > 0:
-		formatted_time = formatted_time.left(decimal_index + 3)  # Take only two decimal places
-		Global.speed_runtime = formatted_time
+#	var formatted_time = str(time)
+#	var decimal_index = formatted_time.find(".")
+#	
+#	if decimal_index > 0:
+#		formatted_time = formatted_time.left(decimal_index + 3)  # Take only two decimal places
+	Global.speed_runtime = time
 
 
 #displaying 'time'by splitting it up in minutes, seconds, milliseconds

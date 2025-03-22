@@ -1,6 +1,6 @@
 extends Area2D
 
-var leaderboard = "res://Scenes/Leaderboardtest.tscn"
+var leaderboard = "res://Scenes/endscreen.tscn"
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
