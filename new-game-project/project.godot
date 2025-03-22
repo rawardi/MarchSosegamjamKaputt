@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [input]
@@ -91,3 +93,7 @@ right_mouse_button={
 [physics]
 
 2d/default_gravity=2080.0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
