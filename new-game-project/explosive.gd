@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animation =  $AnimatedSprite2D
+
 signal inner_granade
 signal outer_granade
 
@@ -24,12 +26,12 @@ func _process(delta: float) -> void:
 	if detonating: 
 		explosion_timer += delta #detonation countdown
 		if explosion_timer > 0.4:
+			animation.play("detonation")
 			if inner_granade.is_connected(body_.granade_boost):
-				inner_granade.emit(global_position,1500) #emit granade signal when timer hits detonation timer
+				inner_granade.emit(global_position,1300) #emit granade signal when timer hits detonation timer
 			else:
-				outer_granade.emit(global_position, 1000)
-			#granade_sprite.play("detonation")
-			#await granade_sprite.animation_finished
+				outer_granade.emit(global_position, 900)
+			await animation.animation_finished
 			
 			self.queue_free()
 	

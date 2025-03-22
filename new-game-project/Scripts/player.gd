@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
-
-@onready var selected_card = $RichTextLabel
 @onready var animation = $AnimatedSprite2D
 @onready var marker = $Marker2D
 
+@onready var center_card_animation = $AnimatedSprite2D2
+@onready var left_card_animation = $AnimatedSprite2D3
+@onready var right_card_animation = $AnimatedSprite2D4
+
 var explosiv_scene = preload("res://explosive.tscn")
 
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -700.0
 var MAX_SPEED = 700.0
 var original_max_speed = MAX_SPEED
 var Original 
@@ -41,7 +43,7 @@ func _physics_process(delta):
 
 
 #start wall jump
-	if is_on_wall() and Input.is_action_just_pressed("use_card"):# and current_cardtype == "walljump" and cardtypes[cardname_array[i]] > 0:
+	if is_on_wall() and Input.is_action_just_pressed("use_card") and current_cardtype == "walljump" and cardtypes[cardname_array[i]] > 0:
 		wallclutch = true
 
 #wall clutch when shift pressed
@@ -58,7 +60,7 @@ func _physics_process(delta):
 		var shoot_vector = global_position - get_global_mouse_position()
 		shoot_vector.round()
 		shoot_vector /= shoot_vector.length()
-		velocity = shoot_vector * 825
+		velocity = shoot_vector * 1100
 
 		animation.play("walljump")
 
@@ -123,7 +125,7 @@ func _physics_process(delta):
 		launched = false
 
 
-	if Input.is_action_just_pressed("use_card") and current_cardtype == "explosion":# and cardtypes[cardname_array[i]] > 0:
+	if Input.is_action_just_pressed("use_card") and current_cardtype == "explosion" and cardtypes[cardname_array[i]] > 0:
 		var explosiv = explosiv_scene.instantiate() #spawns granade
 		explosiv.global_position = marker.global_position #set position to marker 2D
 		get_tree().current_scene.add_child(explosiv) #link bullet to tree
@@ -131,7 +133,7 @@ func _physics_process(delta):
 		explosiv.direction = shoot_vector/shoot_vector.length() #give shoot direction to bullet 
 
 
-	if not wallclutch:
+	if not wallclutch and launched_to_ground:
 
 #flips charactersprite
 		if direction == -1:
@@ -184,12 +186,12 @@ func _process(delta: float) -> void:
 			i -= 1
 		current_cardtype = cardname_array[i]
 
-#displays selected card
-	selected_card.text = current_cardtype
-	if cardtypes[cardname_array[i]] != 0:
-		selected_card.text = "[color=yellow]" + current_cardtype
-	else:
-		selected_card.text = "[color=gray]" + current_cardtype
+##displays selected card
+#	selected_card.text = current_cardtype
+#	if cardtypes[cardname_array[i]] != 0:
+#		selected_card.text = "[color=yellow]" + current_cardtype
+#	else:
+#		selected_card.text = "[color=gray]" + current_cardtype
 
 
 
@@ -201,6 +203,27 @@ func _process(delta: float) -> void:
 			animation.play("idle")
 		elif not is_on_floor():
 			animation.play("falling")
+	
+	if cardtypes[cardname_array[i]] > 0:
+		center_card_animation.play(current_cardtype+"_active")
+	else:
+		center_card_animation.play(current_cardtype+"_inactive")
+	
+	var r = i
+	if i == 0:
+		r =  cardtypes.size()
+	if cardtypes[cardname_array[r-1]] > 0:
+		right_card_animation.play(current_cardtype+"_active")
+	else:
+		right_card_animation.play(current_cardtype+"_inactive")
+	
+	var s = i
+	if s == cardtypes.size()-1:
+		s = -1
+	if cardtypes[cardname_array[s+1]] > 0:
+		left_card_animation.play(current_cardtype+"_active")
+	else:
+		left_card_animation.play(current_cardtype+"_inactive")
 
 
 func store_card(type):
