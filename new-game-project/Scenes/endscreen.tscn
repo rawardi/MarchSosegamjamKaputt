@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdr4akk3xwn22"]
+[gd_scene load_steps=5 format=3 uid="uid://bdr4akk3xwn22"]
 
 [ext_resource type="Script" path="res://Scenes/endscreen.gd" id="1_7tps4"]
 [ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="2_u5aou"]
+[ext_resource type="Texture2D" uid="uid://dysvow5u1tsey" path="res://Assets/Background_End_Screen.png" id="3_8mbw1"]
+[ext_resource type="Texture2D" uid="uid://cursckyo2dcwx" path="res://Assets/PARALAXBACKGROUND_LAYERED.png" id="4_hhk8h"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -13,39 +15,46 @@ grow_vertical = 2
 script = ExtResource("1_7tps4")
 metadata/_edit_use_anchors_ = true
 
-[node name="Hide" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 18.0
-offset_right = 115.0
-offset_bottom = 49.0
-size_flags_horizontal = 3
-text = "Hide Leaderboard"
+[node name="BackgroundEndScreen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(4, 4)
+texture = ExtResource("3_8mbw1")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="ParalaxbackgroundLayered" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("4_hhk8h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 1
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -202.0
-offset_right = 654.0
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -615.0
+offset_top = -380.0
+offset_right = 615.0
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 2
+offset_left = 35.0
+offset_top = 915.0
+offset_right = 955.0
+offset_bottom = 1049.0
 size_flags_horizontal = 3
-
-[node name="Show" type="Button" parent="."]
-layout_mode = 0
-offset_left = 799.0
-offset_top = 887.0
-offset_right = 1248.0
-offset_bottom = 1074.0
-text = "Show Leaderboard"
+theme_override_font_sizes/font_size = 64
+alignment = 1
 
 [node name="LeaderboardUI" parent="." instance=ExtResource("2_u5aou")]
-visible = false
+z_index = 1
 layout_mode = 1
+<<<<<<< Updated upstream
 leaderboard_id = "marchsosegamejam2025-leaderboard-G93R"
 
 [connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]
@@ -53,3 +62,22 @@ leaderboard_id = "marchsosegamejam2025-leaderboard-G93R"
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="Show" to="." method="_on_show_pressed"]
 [connection signal="pressed" from="Show" to="." method="_on_button_pressed"]
+=======
+offset_left = 35.0
+offset_top = 481.0
+offset_right = -965.0
+offset_bottom = -189.0
+leaderboard_id = "marchsosegamejam2025-leaderboard-GU3d"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 915.0
+offset_right = 955.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 64
+text = "RETURN TO MENU"
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+>>>>>>> Stashed changes
