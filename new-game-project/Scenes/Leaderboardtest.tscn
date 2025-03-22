@@ -14,6 +14,7 @@ script = ExtResource("1_lx242")
 metadata/_edit_use_anchors_ = true
 
 [node name="Hide" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 18.0
 offset_right = 115.0
@@ -52,9 +53,9 @@ visible = false
 layout_mode = 1
 leaderboard_id = "marchsosegamejam2025-leaderboard-GU3d"
 
-[connection signal="pressed" from="Hide" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]
+[connection signal="pressed" from="Hide" to="." method="_on_button_pressed"]
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Show" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Show" to="." method="_on_show_pressed"]
+[connection signal="pressed" from="Show" to="." method="_on_button_pressed"]
