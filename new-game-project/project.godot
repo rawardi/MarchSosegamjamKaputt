@@ -18,12 +18,22 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Scripts/Global/Global.gd"
+Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
+PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+
+[editor]
+
+version_control/plugin_name="quiver"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/quiver_leaderboards/plugin.cfg", "res://addons/quiver_player_accounts/plugin.cfg")
 
 [input]
 
@@ -97,6 +107,10 @@ right_mouse_button={
 [physics]
 
 2d/default_gravity=2080.0
+
+[quiver]
+
+general/auth_token="qLfi8fwI0WKo4mZSwqK7mjiWLT3IE1cO7QnEyuTK"
 
 [rendering]
 
