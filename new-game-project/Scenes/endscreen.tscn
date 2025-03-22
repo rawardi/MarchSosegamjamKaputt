@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdr4akk3xwn22"]
 
-[ext_resource type="Script" path="res://Scenes/leaderboardtest.gd" id="1_lx242"]
-[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="2_awneh"]
+[ext_resource type="Script" path="res://Scenes/endscreen.gd" id="1_7tps4"]
+[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/quiver_leaderboards/leaderboard_ui.tscn" id="2_u5aou"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lx242")
+script = ExtResource("1_7tps4")
 metadata/_edit_use_anchors_ = true
 
 [node name="Hide" type="Button" parent="."]
@@ -43,7 +43,7 @@ offset_right = 1248.0
 offset_bottom = 1074.0
 text = "Show Leaderboard"
 
-[node name="LeaderboardUI" parent="." instance=ExtResource("2_awneh")]
+[node name="LeaderboardUI" parent="." instance=ExtResource("2_u5aou")]
 visible = false
 layout_mode = 1
 leaderboard_id = "marchsosegamejam2025-leaderboard-GU3d"

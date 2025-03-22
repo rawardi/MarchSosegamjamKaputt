@@ -19,6 +19,5 @@ func _on_show_pressed() -> void:
 	$LeaderboardUI.show()
 
 
-
 func _on_hide_pressed() -> void:
 	$LeaderboardUI.hide()
