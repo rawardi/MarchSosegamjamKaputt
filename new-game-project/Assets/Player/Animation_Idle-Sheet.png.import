@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqbb60uyabpwj"
-path="res://.godot/imported/Animation_Wall_Hold_2-Sheet-export.png-90f2d133617e2888eb5ac021357ecf57.ctex"
+uid="uid://dvimy487h601n"
+path="res://.godot/imported/Animation_Idle-Sheet.png-3a7960af02cbfb6bd2aae72feb3a07b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animation_Wall_Hold_2-Sheet-export.png"
-dest_files=["res://.godot/imported/Animation_Wall_Hold_2-Sheet-export.png-90f2d133617e2888eb5ac021357ecf57.ctex"]
+source_file="res://Assets/Player/Animation_Idle-Sheet.png"
+dest_files=["res://.godot/imported/Animation_Idle-Sheet.png-3a7960af02cbfb6bd2aae72feb3a07b3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhxxifcbvnyy8"
-path="res://.godot/imported/Animation_Double_Jump-Sheet.png-f219782a09697a50e39e26fd7ee80484.ctex"
+uid="uid://bxqwbuo62kn2f"
+path="res://.godot/imported/Animation_Wall_Jumpl-Sheet.png-192612b9487428674cdaa03214181b2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animation_Double_Jump-Sheet.png"
-dest_files=["res://.godot/imported/Animation_Double_Jump-Sheet.png-f219782a09697a50e39e26fd7ee80484.ctex"]
+source_file="res://Assets/Player/Animation_Wall_Jumpl-Sheet.png"
+dest_files=["res://.godot/imported/Animation_Wall_Jumpl-Sheet.png-192612b9487428674cdaa03214181b2f.ctex"]
 
 [params]
 

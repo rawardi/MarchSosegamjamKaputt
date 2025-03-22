@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dge3aeo46nshg"
-path="res://.godot/imported/Animation_Jump-Sheet.png-a087dfbf7142eeca12b5d4aa602a5d2a.ctex"
+uid="uid://vislg8krbo11"
+path="res://.godot/imported/Animation_Walk-Sheet.png-3fc6c840bf4a8147845b7bc03d68fd8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animation_Jump-Sheet.png"
-dest_files=["res://.godot/imported/Animation_Jump-Sheet.png-a087dfbf7142eeca12b5d4aa602a5d2a.ctex"]
+source_file="res://Assets/Player/Animation_Walk-Sheet.png"
+dest_files=["res://.godot/imported/Animation_Walk-Sheet.png-3fc6c840bf4a8147845b7bc03d68fd8a.ctex"]
 
 [params]
 

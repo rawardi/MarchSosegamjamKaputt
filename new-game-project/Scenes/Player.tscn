@@ -1,13 +1,13 @@
 [gd_scene load_steps=42 format=3 uid="uid://dses5w6sjpe2"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_15r4l"]
-[ext_resource type="Texture2D" uid="uid://dhxxifcbvnyy8" path="res://Animation_Double_Jump-Sheet.png" id="2_80e6o"]
-[ext_resource type="Texture2D" uid="uid://vislg8krbo11" path="res://Animation_Walk-Sheet.png" id="2_qs1fs"]
-[ext_resource type="Texture2D" uid="uid://c5iccjo5ifx4i" path="res://Animation_Fall-Sheet.png" id="3_qwho1"]
-[ext_resource type="Texture2D" uid="uid://dvimy487h601n" path="res://Animation_Idle-Sheet.png" id="4_ski1s"]
-[ext_resource type="Texture2D" uid="uid://dge3aeo46nshg" path="res://Animation_Jump-Sheet.png" id="5_rqgas"]
-[ext_resource type="Texture2D" uid="uid://cqbb60uyabpwj" path="res://Animation_Wall_Hold_2-Sheet-export.png" id="7_7qyoj"]
-[ext_resource type="Texture2D" uid="uid://dxouxnnxwlv3f" path="res://Animation_Jump_Wall_flipped-Sheet.png" id="8_688lk"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_15r4l"]
+[ext_resource type="Texture2D" uid="uid://dhxxifcbvnyy8" path="res://Assets/Player/Animation_Double_Jump-Sheet.png" id="2_80e6o"]
+[ext_resource type="Texture2D" uid="uid://vislg8krbo11" path="res://Assets/Player/Animation_Walk-Sheet.png" id="2_qs1fs"]
+[ext_resource type="Texture2D" uid="uid://c5iccjo5ifx4i" path="res://Assets/Player/Animation_Fall-Sheet.png" id="3_qwho1"]
+[ext_resource type="Texture2D" uid="uid://dvimy487h601n" path="res://Assets/Player/Animation_Idle-Sheet.png" id="4_ski1s"]
+[ext_resource type="Texture2D" uid="uid://dge3aeo46nshg" path="res://Assets/Player/Animation_Jump-Sheet.png" id="5_rqgas"]
+[ext_resource type="Texture2D" uid="uid://cqbb60uyabpwj" path="res://Assets/Player/Animation_Wall_Hold_2-Sheet-export.png" id="7_7qyoj"]
+[ext_resource type="Texture2D" uid="uid://dxouxnnxwlv3f" path="res://Assets/Player/Animation_Jump_Wall_flipped-Sheet.png" id="8_688lk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0j5y"]
 
